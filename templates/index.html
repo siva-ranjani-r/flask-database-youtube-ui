@@ -71,6 +71,22 @@
                     </div>
                 </div>
             </div>
+
+            {%for i in range(data|length)%}
+            <div class="vid-list">
+                <a href={{data[i]}}><img src={{data1[i]}} class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="./images/Jack.jpg">
+                    <div class="vid-info">
+                        <a href="#">This is a video focused on frontend development. 
+                            This is created for absolute beginners. we also have other videos. 
+                            Now  we are replicating Youtube UI</a>
+                            <p>Happy Students</p>
+                            <p>1M views &bull; 2 days</p>
+                    </div>
+            </div>
+            {%endfor%} 
+
             <div class="vid-list">
                 <a href="#"><img src="./images/thumbnail2.png" class="thumbnail"></a>
                 <div class="flex-div">

@@ -1,7 +1,11 @@
 from flask import Flask,render_template,request,redirect
 import sqlite3 as sql
+import templates
 
 app=Flask("__name__")
+
+
+
 
 @app.route("/",methods=['POST','GET'])
 def fun():
@@ -21,13 +25,28 @@ def select():
     cur=conn.cursor()
     cur.execute("Select * from connect")
     row=cur.fetchall()
-    print(row)
     a=[]
     b=[]
     for i in row:
         a.append(i[0])
         b.append(i[1])
+    print(a,b)
+    return render_template("videoplayer.html",data=a,data1=b)
+
+@app.route('/view1',methods=['POST','GET'])
+def select1():
+    conn=sql.connect('url.db')
+    cur=conn.cursor()
+    cur.execute("Select * from connect")
+    row=cur.fetchall()
+    a=[]
+    b=[]
+    for i in row:
+        a.append(i[0])
+        b.append(i[1])
+    print(a,b)
     return render_template("index.html",data=a,data1=b)
+
 
 
 if __name__=="__main__":

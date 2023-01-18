@@ -30,16 +30,15 @@
             <img src="./images/Jack.jpg" class="user-icon">
         </div>
     </nav>
- 
+
     <div class="container play-container">
         <div class="row">
             <div class="play-video">
+                {%for i in range(data|length)%}
                 <video controls>
-                    <source src="./images/video.mp4" type="video/mp4">
-                    {%for i in range(data|length)%}
-                    <source src={{data[i]}} type="video/mp4">
-                    {%endfor%}
+                    <source src={{data[i]}} type="video/mp4"> 
                 </video>
+                {%endfor%}
 
                 <div class="tags">
                     <a href="#">#Coding</a>
