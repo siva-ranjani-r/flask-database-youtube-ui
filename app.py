@@ -4,9 +4,6 @@ import templates
 
 app=Flask("__name__")
 
-
-
-
 @app.route("/",methods=['POST','GET'])
 def fun():
     if request.form.get('video1')!=None:
@@ -17,7 +14,6 @@ def fun():
         cur.execute('insert into connect (video1,image1) values(?,?)',(video1,image1))
         conn.commit()
     return render_template("data.html")
-
 
 @app.route('/view',methods=['POST','GET'])
 def select():
